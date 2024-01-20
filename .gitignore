@@ -10,6 +10,7 @@
 *.dll
 *.dll.recipe
 *.lib
+*.lib.recipe
 *.exp
 *.iobj
 *.ipdb

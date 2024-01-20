@@ -1,7 +1,7 @@
 /*
 BSD 2-Clause License
 
-Copyright (c) 2023, Mikhail Morozov
+Copyright (c) 2024, Mikhail Morozov
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -25,35 +25,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef PUREG4_H
-#define PUREG4_H
+#ifndef TEST_UTIL_H
+#define TEST_UTIL_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <stddef.h>
 #include <stdint.h>
 
-enum {
-	PUREG4_MMR_FLAG_MIN_IS_BLACK = 0x1,
-	PUREG4_MMR_FLAG_STRIPPED = 0x2
-};
-
-typedef struct {
-	uint16_t width;
-	uint16_t height;
-	uint8_t flags;
-} pureg4_mmrheader_t;
-
-size_t pureg4GetDecodedImageSize(uint16_t width, uint16_t height);
-size_t pureg4GetEncodedImageSize(uint16_t width, uint16_t height);
-size_t pureg4DecodeMMRHeader(uint8_t *buf, size_t buf_size, pureg4_mmrheader_t *mmrheader);
-size_t pureg4DecodeImage(uint8_t *buf, size_t buf_size, uint16_t width, uint16_t height, uint8_t flags, uint8_t *imgbuf);
-
-
-#ifdef __cplusplus
-}
-#endif
+uint8_t *GenTestImage(uint16_t width, uint16_t height);
 
 #endif
